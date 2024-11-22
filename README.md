@@ -27,4 +27,13 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-![Menu](static/images/menu)
+## Hình ảnh minh họa
+![Menu](https://github.com/DT1624/Final_Web_Cryptography/blob/master/web_matma/static/images/menu.png)
+
+![Generate Key](https://github.com/DT1624/Final_Web_Cryptography/blob/master/web_matma/static/images/generate_key.png)
+
+![Encode/Decode](https://github.com/DT1624/Final_Web_Cryptography/blob/master/web_matma/static/images/en_de.png)
+
+![sig_ver](https://github.com/DT1624/Final_Web_Cryptography/blob/master/web_matma/static/images/sig_ver.png)
+
+![more](https://github.com/DT1624/Final_Web_Cryptography/blob/master/web_matma/static/images/more.png)
