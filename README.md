@@ -16,10 +16,4 @@
 git clone https://github.com/your-username/web-cryptography.git
 cd web_matma
 
-### Bước 2: Tải thư viện cần thiết
-```bash
-pip install -r requirements.txt
 
-### Bước 3: Chạy ứng dụng
-```bash
-python manage.py runserver
