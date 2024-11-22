@@ -1,0 +1,507 @@
+{% load static %}
+<html lang="en">
+<!-- -->
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+</script>
+<script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="shortcut icon" href="{% static 'images/tabb.jpg' %}" type="">
+
+  <title> CipherSign   </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic" rel='stylesheet' type='text/css'>
+  <link href="{%static 'css/why.css' %}" rel="stylesheet" />
+  <link href="{%static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{%static 'css/responsive.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+</head>
+
+<body>
+  
+  <nav id="navbar">
+    <article>
+      <header class="master-header">
+        <a href='{% url 'home' %}' style="color: white;font-weight: bold;"> CipherSign</a>
+      </header>
+      <a class="nav-link menu-heading" href="#Introduction_and_Overview">Introduction and Overview</a>
+      <a class="nav-link menu-heading" href="#Cryptography_basics">Cryptography basics</a>
+      <a class="nav-link menu-item" href="#Basic_communications_model">Basic communications model</a>
+      <a class="nav-link menu-item" href="#Security_goals">Security goals</a>
+      <a class="nav-link menu-item" href="#Adversarial_model">Adversarial model</a>
+      <a class="nav-link menu-item" href="#Symmetric-key_cryptography">Symmetric-key cryptography</a>
+      <a class="nav-link menu-item" href="#Key_distribution_and_management">Key distribution and management</a>
+      <a class="nav-link menu-item" href="#Public-key_cryptography">Public-key cryptography</a>
+      <a class="nav-link menu-heading" href="#Public-key_cryptography-heading">Public-key cryptography</a>
+      <a class="nav-link menu-item" href="#RSA_systems">RSA systems</a>
+      <a class="nav-link menu-item" href="#RSA_encryption_scheme">RSA encryption scheme</a>
+      <a class="nav-link menu-item" href="#RSA_signature_scheme">RSA signature scheme</a>
+      <a class="nav-link menu-heading" href="#Discrete_logarithm_systems">Discrete logarithm systems</a>
+      <a class="nav-link menu-item" href="#DL_key_generation">DL key generation</a>
+      <a class="nav-link menu-item" href="#DL_encryption_scheme">DL encryption scheme</a>
+      <a class="nav-link menu-heading" href="#Reference">Reference</a>
+    </article>
+  </nav>
+  
+  <main id="main-doc">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <span>
+            CipherSign
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  ">
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'cryptosystem' %}"> CryptoSystem</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signature' %}">Signature</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="{% url 'why' %}">More</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- end header section -->
+    
+
+    <section class="main-section" id="Introduction_and_Overview">
+      <header class="gw-section__headline">Introduction and Overview</header>
+      <article>
+        <p>Elliptic curves have a rich and beautiful history, having been studied by mathematicians
+          for over a hundred years. They have been used to solve a diverse range of problems. One
+          example is the congruent number problem that asks for a classification of the positive
+          integers occurring as the area of some right-angled triangle, the lengths of whose sides
+          are rational numbers. Another example is proving Fermat’s Last Theorem which states
+          that the equation <span> `x^n+ y^n = z^n`</span> has no nonzero integer solutions for x, y and z when
+          the
+          integer n is greater than 2.
+          In 1985, Neal Koblitz and Victor Miller independently proposed using elliptic curves
+          to design public-key cryptographic systems. Since then an abundance of research has
+          been published on the security and efficient implementation of elliptic curve cryptography.</p>
+        <p> In the late 1990’s, elliptic curve systems started receiving commercial acceptance
+          when accredited standards organizations specified elliptic curve protocols, and private
+          companies included these protocols in their security products.</p>
+        <p>The purpose of this chapter is to explain the advantages of public-key cryptography
+          over traditional symmetric-key cryptography, and, in particular, to expound the virtues
+          of elliptic curve cryptography.</p>
+      </article>
+    </section>
+    <section class="main-section" id="Cryptography_basics">
+      <header class="page-title">Cryptography basics</header>
+      <article>
+        <p>Cryptography is about the design and analysis of mathematical techniques that enable
+          secure communications in the presence of malicious adversaries.</p>
+        <section class="main-section" id="Basic_communications_model">
+          <header class="page-title">Basic communications model</header>
+
+          <p>In Figure 1.1, entities A (Alice) and B (Bob) are communicating over an unsecured
+            channel. We assume that all communications take place in the presence of an adversary
+            E (Eve) whose objective is to defeat any security services being provided to A and B.</p>
+
+          <div>
+            <img id="image" src="https://github.com/baldra2k/ResponsiveWebDesign/blob/master/Basic_communications_model.jpg?raw=true" alt="Basic communications model's image" />
+            <figcaption id="img-caption">Fig. 1.1.- Basic communications model.</figcaption>
+          </div>
+          <p>For example, A and B could be two people communicating over a cellular telephone
+            network, and E is attempting to eavesdrop on their conversation. Or, A could be the
+            web browser of an individual &Atilde; who is in the process of purchasing a product from
+            an online store B˜ represented by its web site B. In this scenario, the communications
+            channel is the Internet. An adversary E could attempt to read the traffic from A to B
+            thus learning A˜’s credit card information, or could attempt to impersonate either A˜ or
+            B˜ in the transaction. As a third example, consider the situation where A is sending
+            an email message to B over the Internet. An adversary E could attempt to read the
+            message, modify selected portions, or impersonate A by sending her own messages
+            to B. Finally, consider the scenario where A is a smart card that is in the process
+            of authenticating its holder A˜ to the mainframe computer B at the headquarters of a
+            bank. Here, E could attempt to monitor the communications in order to obtain A˜’s
+            account information, or could try to impersonate A˜ in order to withdraw funds from
+            A˜’s account. It should be evident from these examples that a communicating entity
+            is not necessarily a human, but could be a computer, smart card, or software module
+            acting on behalf of an individual or an organization such as a store or a bank.
+          </p>
+
+        </section>
+
+        <section class="main-section" id="Security_goals">
+
+          <header>Security goals</header>
+
+          <p>Careful examination of the scenarios outlined above reveals the following fundamental
+            objectives of secure communications:</p>
+          <ul>
+            <li>Confidentiality: keeping data secret from all but those authorized to see it—messages sent by A
+              to B should not be readable by E.</li>
+            <li>Data integrity: ensuring that data has not been altered by unauthorized means—B should be able
+              to detect when data sent by A has been modified by E.</li>
+            <li>Data origin authentication: corroborating the source of data—B should be able to verify that
+              data purportedly sent by A indeed originated with A.</li>
+            <li>Entity authentication: corroborating the identity of an entity—B should be convinced of the
+              identity of the other communicating entity.</li>
+            <li>Non-repudiation: preventing an entity from denying previous commitments or actions—when B
+              receives a message purportedly from A, not only is B convinced that the message originated with
+              A, but B can convince a neutral third
+              party of this; thus A cannot deny having sent the message to B.</li>
+          </ul>
+
+        </section>
+
+        <section class="main-section" id="Adversarial_model">
+
+          <header>Adversarial model</header>
+
+          <p>In order to model realistic threats faced by A and B, we generally assume that the
+            adversary E has considerable capabilities. In addition to being able to read all data
+            transmitted over the channel, E can modify transmitted data and inject her own data.
+            Moreover, E has significant computational resources at her disposal. Finally, complete descriptions
+            of the communications protocols and any cryptographic mechanisms
+            deployed (except for secret keying information) are known to E. The challenge to cryptographers is
+            to design mechanisms to secure the communications in the face of such
+            powerful adversaries.
+          </p>
+
+        </section>
+
+        <section class="main-section" id="Symmetric-key_cryptography">
+
+          <header>Symmetric-key cryptography</header>
+
+          <p>Cryptographic systems can be broadly divided into two kinds. In symmetric-key
+            schemes, depicted in Figure 1.2(a), the communicating entities first agree upon keying
+            material that is both secret and authentic. Subsequently, they may use a symmetric-key
+            encryption scheme such as the Data Encryption Standard (DES), RC4, or the Advanced
+            Encryption Standard (AES) to achieve confidentiality. They may also use a message authentication
+            code (MAC) algorithm such as HMAC to achieve data integrity and data
+            origin authentication.
+          </p>
+          <div>
+            <img id="image" src="https://github.com/baldra2k/ResponsiveWebDesign/blob/master/Symmetric-key.jpg?raw=true" alt="Symmetric-key's image" />
+            <figcaption id="img-caption">Figure 1.2. Symmetric-key versus public-key cryptography.</figcaption>
+          </div>
+          <p>For example, if confidentiality were desired and the secret key shared by A and B
+            were <i>k</i>, then A would encrypt a plaintext message m using an encryption function ENC
+            and the key <i>k</i> and transmit the resulting ciphertext <span>`c = ENCk (m)`</span> to B. On
+            receiving c,
+            B would use the decryption function DEC and the same key <i>k</i> to recover <span>`m = DECk
+              (c)`</span>.
+            If data integrity and data origin authentication were desired, then A and B would first
+            agree upon a secret key <i>k</i>, after which A would compute the authentication tag <span>`t =
+              MACk (m)`</span> of a plaintext message m using a MAC algorithm and the key <i>k</i>. A would
+            then send m and t to B. On receiving m and t, B would use the MAC algorithm and
+            the same key <i>k</i> to recompute the tag <span>`t' = MACk (m)`</span> of m and accept the message
+            as
+            having originated from <span>`A if t = t'`</span></p>
+
+        </section>
+
+        <section class="main-section" id="Key_distribution_and_management">
+
+          <header>Key distribution and management</header>
+
+          <p>The major advantage of symmetric-key cryptography is high efficiency; however, there are
+            significant drawbacks to these systems.
+            One primary drawback is the so-called <i>key distribution problem</i>—the requirement for
+            a channel that is both secret and authenticated for the distribution of keying material.
+            In some applications, this distribution may be conveniently done by using a physically secure channel
+            such as a trusted courier. Another way is to use the services of an
+            on-line trusted third-party who initially establishes secret keys with all the entities in
+            a network and subsequently uses these keys to securely distribute keying material to
+            communicating entities when required. Solutions such as these may be well-suited to
+            environments where there is an accepted and trusted central authority, but are clearly
+            impractical in applications such as email over the Internet.</p>
+
+          <p>A second drawback is the key management problem—in a network of N entities,
+            each entity may have to maintain different keying material with each of the other N −1
+            entities. This problem can be alleviated by using the services of an on-line trusted thirdparty that
+            distributes keying material as required, thereby reducing the need for entities
+            to securely store multiple keys. Again, however, such solutions are not practical in
+            some scenarios. Finally, since keying material is shared between two (or more) entities,
+            symmetric-key techniques cannot be used to <i>devise elegant digital signature</i> schemes
+            that provide non-repudiation services. This is because it is impossible to distinguish
+            between the actions taken by the different holders of a secret key.</p>
+
+        </section>
+
+        <section class="main-section" id="Public-key_cryptography">
+
+          <header>Public-key cryptography</header>
+
+          <p>The notion of public-key cryptography, depicted in Figure 1.2(b), was introduced in
+            1975 by Diffie, Hellman and Merkle to address the aforementioned shortcomings of symmetric-key
+            cryptography. In contrast to symmetric-key schemes, public-key schemes require only that the
+            communicating entities exchange keying material that is authentic (but not secret). Each entity
+            selects a single key pair (e,d) consisting of a public key e, and a related private key d (that the
+            entity keeps secret). The keys have the
+            property that it is computationally infeasible to determine the private key solely from knowledge of
+            the public key.</p>
+          <p><strong>Confidentiality</strong>:If entity <i>A</i> wishes to send entity <i>B</i> a confidential
+            message <i>m</i>, she obtains an authentic copy of <i>B</i>’s public key <span>` eB`</span>, and
+            uses the encryption function ENC of a public-key encryption scheme to compute the ciphertext
+            <span>`c = ENC underset(eB)``( m )`</span>. A then transmits <i>c</i> to <i>B</i>, who uses the
+            decryption function DEC and his private key <span>` underset(dB) `</span> to recover the plaintext:
+            <span>`m = DEC underset(dB)``( c )`</span>. The presumption is that an adversary with knowledge only
+            of <span>` underset(eB) `</span> (but not of <span>`dB`</span>) cannot decrypt c. Observe that there
+            are no secrecy requirements on <span>` underset(eB) `</span>. It is essential only that <i>A</i>
+            obtain an authentic copy of <span>` underset(eB) `</span>—otherwise <i>A</i> would encrypt <i>m</i>
+            using the public key <span>` underset(eE) `</span> of some entity E purporting to be <i>B</i>, and
+            <i>m</i> would be recoverable by E.
+          </p>
+          <p><strong>Non-repudiation</strong>: Digital signature schemes can be devised for data origin
+            authentication and data integrity, and to facilitate the provision of non-repudiation services.
+            An entity A would use the signature generation algorithm SIGN of a digital signature
+            scheme and her private key dA to compute the signature of a message: <span>`s = SIGN underset(dA)``(
+              m )`</span>.
+            Upon receiving m and s, an entity B who has an authentic copy of A’s public key eA
+            uses a signature verification algorithm to confirm that s was indeed generated from
+            m and dA. Since <span>`underset(dA)`</span> is presumably known only by A, B is assured that the
+            message
+            did indeed originate from A. Moreover, since verification requires only the non-secret
+            quantities m and <span>`underset(eA)`</span>, the signature s for m can also be verified by a third
+            party who could settle disputes if A denies having signed message m. Unlike handwritten signatures,
+            A’s signature s depends on the message m being signed, preventing a forger from simply appending s
+            to a different message <i>m</i> and claiming that A signed m.</p>
+          <p>Even though there are no secrecy requirements on the public key <span>`underset(eA)`</span>, it is
+            essential that verifiers should use an authentic copy of eA when verifying signatures purportedly
+            generated by A.</p>
+          <p>In this way, public-key cryptography provides elegant solutions to the three problems
+            with symmetric-key cryptography, namely key distribution, key management, and the
+            provision of non-repudiation. It must be pointed out that, although the requirement
+            for a secret channel for distributing keying material has been eliminated, implementing a public-key
+            infrastructure (PKI) for distributing and managing public keys can
+            be a formidable challenge in practice. Also, public-key operations are usually significantly slower
+            than their symmetric-key counterparts. Hence, hybrid systems that benefit
+            from the efficiency of symmetric-key algorithms and the functionality of public-key
+            algorithms are often used.</p>
+      </article>
+    </section>
+
+    <section class="main-section" id="Public-key_cryptography-heading">
+
+      <header>Public-key cryptography</header>
+      <article>
+        <p>In a public-key cryptographic scheme, a key pair is selected so that the problem of
+          deriving the private key from the corresponding public key is equivalent to solving
+          a computational problem that is believed to be intractable. Number-theoretic problems whose
+          intractability form the basis for the security of commonly used public-key
+          schemes are:</p>
+        <ul>
+          <li>The integer factorization problem, whose hardness is essential for the security of
+            RSA public-key encryption and signature schemes.</li>
+          <li>The discrete logarithm problem, whose hardness is essential for the security of
+            the ElGamal public-key encryption and signature schemes and their variants such
+            as the Digital Signature Algorithm (DSA).</li>
+          <li>The elliptic curve discrete logarithm problem, whose hardness is essential for the
+            security of all elliptic curve cryptographic schemes.</li>
+        </ul>
+
+        <section class="main-section" id="RSA_systems">
+
+          <header>RSA systems</header>
+          <p>RSA, named after its inventors Rivest, Shamir and Adleman, was proposed in 1977
+            shortly after the discovery of public-key cryptography.</p>
+
+          <p>RSA key generation</p>
+
+          <p>An RSA key pair can be generated using Algorithm 1.1. The public key consists of a
+            pair of integers <span>`(n, e)`</span> where the RSA modulus n is a product of two randomly
+            generated
+            (and secret) primes <i>p</i> and <i>q</i> of the same bitlength. The encryption exponent e is an
+            integer satisfying <span>` 1 < e < φ and gcd(e,φ)=1`</span> where <span>`φ = (p −1)(q −1)`</span>.
+                The private
+                key <i>d</i>, also called the decryption exponent, is the integer satisfying <span>`1 < d < φ ` and `ed ≡ 1 (mod φ)`</span>. It has been proven that the problem of determining
+                    the private key <i>d</i>
+                    from the public <span>`key (n, e)`</span> is computationally equivalent to the
+                    problem of determining
+                    the factors <i>p</i> and <i>q</i> of <i>n</i>; the latter is the integer
+                    factorization problem (IFP).</p>
+
+          <p>Algorithm 1.1 RSA key pair generation</p>
+
+          <code>
+            INPUT: Security parameter l.
+            OUTPUT: RSA public key (n, e) and private key d.
+            1. Randomly select two primes p and q of the same bitlength l/2.
+            2. Compute n = pq and φ = (p −1)(q −1).
+            3. Select an arbitrary integer e with 1 < e < φ and gcd(e,φ)=1. 4. Compute the integer d satisfying 1 < d < φ and ed ≡ 1 (mod φ). 5. Return(n, e,d). </code>
+
+        </section>
+
+        <section class="main-section" id="RSA_encryption_scheme">
+          <header>RSA encryption scheme</header>
+          <p>RSA encryption and signature schemes use the fact that</p>
+          <p><span>`m overset(ed)`` ≡ m (mod n)`</span></p>
+          <p>for all integers m. The encryption and decryption procedures for the (basic) RSA
+            public-key encryption scheme are presented as Algorithms 1.2 and 1.3. Decryption
+            works because <span>`c^d ≡ (m^e)^d ≡ m (mod n) `</span>, as derived from expression (1.1). The
+            security
+            relies on the difficulty of computing the plaintext m from the ciphertext <span>`c =
+              m^e mod n`</span> and the public parameters n and e. This is the problem of finding eth roots
+            modulo n and is assumed (but has not been proven) to be as difficult as the integer
+            factorization problem.</p>
+          <p>Algorithm 1.2 Basic RSA encryption</p>
+          <code>
+            INPUT: RSA public key (n, e), plaintext m ∈ [0,n −1].
+            OUTPUT: Ciphertext c.
+            1. Compute c = m^e mod n.
+            2. Return(c).
+          </code>
+          <p>Algorithm 1.3 Basic RSA decryption</p>
+          <code>
+            INPUT: RSA public key (n, e), RSA private key d, ciphertext c.
+            OUTPUT: Plaintext m.
+            1. Compute m = c^d mod n.
+            2. Return(m).
+          </code>
+        </section>
+
+        <section class="main-section" id="RSA_signature_scheme">
+          <header>RSA signature scheme</header>
+          <p>The RSA signing and verifying procedures are shown in Algorithms 1.4 and 1.5. The
+            signer of a message m first computes its message digest <span>`h = H(m)`</span> using a
+            cryptographic
+            hash function <i>H</i>, where <i>h</i> serves as a short fingerprint of <i>m</i>. Then, the signer
+            uses
+            his private key d to compute the eth root s of h modulo <span>`n: s = h^d mod n`</span>. Note that
+            <span>`s^e ≡ h (mod n)`</span> from expression (1.1). The signer transmits the message m and its
+            signature s to a verifying party. This party then recomputes the message digest <span>`h =
+              H(m)`</span>,
+            recovers a message digest <span>`h' = s^e mod n from s`</span>, and accepts the signature as being
+            valid for m provided that h = h
+            . The security relies on the inability of a forger (who
+            does not know the private key d) to compute eth roots modulo n.
+          </p>
+
+          <p>Algorithm 1.4 Basic RSA signature generation</p>
+          <code>
+            INPUT: RSA public key (n, e), RSA private key d, message m.
+            OUTPUT: Signature s.
+            1. Compute h = H(m) where H is a hash function.
+            2. Compute s = h^d mod n.
+            3. Return(s).
+          </code>
+          <p>Algorithm 1.5 Basic RSA signature verification</p>
+          <code>
+            INPUT: RSA public key (n, e), message m, signature s.
+            OUTPUT: Acceptance or rejection of the signature.
+            1. Compute h = H(m).
+            2. Compute h = s^e mod n.
+            3. If h = h then return(“Accept the signature”);
+            Else return(“Reject the signature”).
+          </code>
+          <p>The computationally expensive step in any RSA operation is the modular exponentiation, e.g.,
+            computing me
+            mod n in encryption and cd mod n in decryption. In order to
+            increase the efficiency of encryption and signature verification, one can select a small
+            encryption exponent e; in practice, e = 3 or <span>`e = 2^16 +1`</span> is commonly chosen. The
+            decryption exponent d is of the same bitlength as n. Thus, RSA encryption and signature
+            verification with small exponent e are significantly faster than RSA decryption and
+            signature generation.</p>
+
+        </section>
+
+      </article>
+    </section>
+    <section class="main-section" id="Discrete_logarithm_systems">
+      <header>Discrete logarithm systems</header>
+      <article>
+        <p>The first discrete logarithm (DL) system was the key agreement protocol proposed
+          by Diffie and Hellman in 1976. In 1984, ElGamal described DL public-key encryption and signature
+          schemes. Since then, many variants of these schemes have been
+          proposed. Here we present the basic ElGamal public-key encryption scheme and the
+          Digital Signature Algorithm (DSA).</p>
+
+        <section class="main-section" id="DL_key_generation">
+          <header>DL key generation</header>
+          <p>In discrete logarithm systems, a key pair is associated with a set of public domain parameters (p,q,
+            g). Here, p is a prime, q is a prime divisor of p−1, and g ∈ [1, p−1] has order q (i.e., t = q is
+            the smallest positive integer satisfying gt ≡ 1 (mod p)).
+            A private key is an integer x that is selected uniformly at random from the interval
+            [1,q −1] (this operation is denoted x ∈R [1,q −1]), and the corresponding public key
+            is y = gx mod p. The problem of determining x given domain parameters (p,q, g) and
+            y is the discrete logarithm problem (DLP). We summarize the DL domain parameter
+            generation and key pair generation procedures in Algorithms 1.6 and 1.7, respectively.</p>
+          <p>Algorithm 1.6 DL domain parameter generation</p>
+          <code>INPUT: Security parameters l, t.
+            OUTPUT: DL domain parameters (p,q, g).
+            1. Select a t-bit prime q and an l-bit prime p such that q divides p −1.
+            2. Select an element g of order q:
+            2.1 Select arbitrary h ∈ [1, p −1] and compute g = h( p−1)/q mod p.
+            2.2 If g = 1 then go to step 2.1.
+            3. Return(p,q, g).
+          </code>
+          <p>Algorithm 1.7 DL key pair generation</p>
+          <code>INPUT: DL domain parameters (p,q, g).
+            OUTPUT: Public key y and private key x.
+            1. Select x ∈R [1,q −1].
+            2. Compute y = gx mod p.
+            3. Return(y, x).
+          </code>
+        </section>
+        <section class="main-section" id="DL_encryption_scheme">
+          <header>DL encryption scheme</header>
+          <p>We present the encryption and decryption procedures for the (basic) ElGamal publickey encryption
+            scheme as Algorithms 1.8 and 1.9, respectively. If y is the intended
+            recipient’s public key, then a plaintext m is encrypted by multiplying it by <span>`y^k mod
+              p`</span> where k is randomly selected by the sender. The sender transmits this product <span>`c
+              underset(2)`` = my^k`</span> mod p and also <span>`c1 = g^k`</span> mod p to the recipient who
+            uses her private key to
+            compute</p>
+          <p><span>`c overset(x) underset(1)` `≡ g^(kx) ≡ y^k (mod p)`</span></p>
+          <p>and divides c2 by this quantity to recover m. An eavesdropper who wishes to recover
+            m needs to calculate yk mod p. This task of computing yk mod p from the domain parameters (p,q, g),
+            y, and c1 = gk mod p is called the Diffie-Hellman problem (DHP).</p>
+          <p>The DHP is assumed (and has been proven in some cases) to be as difficult as the discrete logarithm
+            problem.</p>
+          <p>Algorithm 1.8 Basic ElGamal encryption</p>
+          <code>INPUT: DL domain parameters (p,q, g), public key y, plaintext m ∈ [0, p −1].
+            OUTPUT: Ciphertext (c1, c2).
+            1. Select k ∈R [1,q −1].
+            2. Compute c1 = g^k mod p.
+            3. Compute c2 = m · y^k mod p.
+            4. Return(c1, c2).
+          </code>
+          <p>Algorithm 1.9 Basic ElGamal decryption</p>
+          <code>INPUT: DL domain parameters (p,q, g), private key x, ciphertext (c1, c2).
+            OUTPUT: Plaintext m.
+            1. Compute m = c2 · c^−x
+            1 mod p.
+            2. Return(m).
+          </code>
+          <p></p>
+        </section>
+      </article>
+    </section>
+    <section class="main-section" id="Reference">
+
+      <header>Reference</header>
+      <article>
+        <ul>
+          <li>
+            All the documentation in this page is taken from the
+            <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.394.3037&rep=rep1&type=pdf" target="_blank">book</a>
+          </li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+</html>

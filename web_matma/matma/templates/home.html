@@ -1,0 +1,439 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/tabb.jpg' %}" type="">
+
+  <title> CipherSign   </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{%static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{%static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <span>
+              CipherSign
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cryptosystem' %}"> CryptoSystem</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'signature' %}">Signature</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'why' %}">More</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Information <br>
+                      Security
+                    </h1>
+                    <p>
+                      In a world driven by data, Information Security ensures the protection of sensitive information from unauthorized access, breaches, and cyberattacks. 
+                      It focuses on maintaining confidentiality, integrity, and availability of data, empowering individuals and businesses to navigate the digital age with confidence. 
+                      Stay secure your information matters.
+                    </p>
+                    <div class="btn-box">
+                      <a href="#information" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/abc1.gif' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Cryptosystem
+                    </h1>
+                    <p>
+                      A Cryptosystem is the foundation of secure communication, transforming plain information into encrypted data to safeguard it from prying eyes. 
+                      By using algorithms like RSA and AES, cryptosystems provide robust encryption and decryption methods that are essential in modern digital interactions. 
+                      Trust the math behind security.
+                    </p>
+                    <div class="btn-box">
+                      <a href="#cryptosystem" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img1.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Digital <br>
+                      Signature
+                    </h1>
+                    <p>
+                      Digital Signatures are the cornerstone of trust in the digital world, ensuring authenticity and integrity of electronic documents. 
+                      By leveraging cryptographic techniques, they verify the sender's identity and safeguard against tampering. 
+                      Authenticate your world one signature at a time.
+                    </p>
+                    <div class="btn-box">
+                      <a href="#signature" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/e-signatures1.gif' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding" id="information">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          <span>Information Security</span>
+        </h2>
+        <p>
+          Information Security is essential in today’s digital world, safeguarding sensitive data from unauthorized access, alteration, and destruction. By employing advanced technologies and strategies, we ensure that critical information remains protected, confidential, and only accessible to authorized users. In a time when cyber threats are ever-present, strong InfoSec measures are vital for building trust and maintaining the integrity of digital systems.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/about-img2.png' %}" alt="Information Security">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              Why Information Security Matters
+            </h3>
+            <p>
+              Information Security is more than just a technical requirement—it's a cornerstone for trust in the digital landscape. As the volume of sensitive data grows, so does the need for sophisticated protection against cyber threats. Whether protecting personal information, financial transactions, or business-critical data, effective security measures are necessary to ensure safety, privacy, and business continuity.
+            </p>
+            <p>
+              With evolving cyber threats, robust InfoSec strategies are critical for minimizing risks, avoiding data breaches, and ensuring the seamless functioning of digital services. By securing your data, we help you stay one step ahead of potential threats.
+            </p>
+            <a href="{% url 'why' %}">
+              Read more paper
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- end about section -->
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding" id="cryptosystem">
+    <div class="service_container">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>
+            <span>CryptoSystem</span>
+          </h2>
+          <p>
+            Cryptographic systems like RSA, ElGamal, and ECC are vital for securing digital communication and transactions. Each system employs unique mathematical principles to encrypt and decrypt information, ensuring privacy and data integrity in the digital age.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/w2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  RSA
+                </h5>
+                <p>
+                  RSA is a widely-used public-key cryptosystem based on the difficulty of factoring large prime numbers. It’s used for secure data transmission and digital signatures.
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/s2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  ElGamal
+                </h5>
+                <p>
+                  ElGamal encryption is based on the Diffie-Hellman key exchange protocol. It offers semantic security and is often used in digital signatures and key exchange protocols.
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  ECC
+                </h5>
+                <p>
+                  Elliptic Curve Cryptography (ECC) is an advanced public-key cryptosystem offering strong security with shorter key lengths, making it ideal for constrained environments like mobile devices.
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="{% url 'cryptosystem'%}">
+            More
+          </a>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+  <!-- end service section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding" id="signature">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                <span>Digital Signature</span>
+            </h2>
+            <p>
+                A Digital Signature is a cryptographic technique used to validate the authenticity and integrity of a message or document. It ensures that the content has not been altered in transit and that the sender's identity can be verified.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{% static 'images/about-img5.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <h3>
+                        Why Digital Signatures Matter
+                    </h3>
+                    <p>
+                        Digital signatures are the cornerstone of modern electronic communication and transactions. They use asymmetric encryption methods like RSA and ECC to securely sign documents, ensuring that the sender cannot deny their involvement in the transaction. This provides both security and legal verification.
+                    </p>
+                    <p>
+                        Digital signatures are widely used in securing email communications, software distribution, and online transactions. They offer non-repudiation, meaning that once a message or document is signed, the sender cannot deny its authenticity, thus fostering trust and accountability in digital interactions.
+                    </p>
+                    <a href="{% url 'signature' %}">
+                        More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- end about section -->
+
+
+  <!-- info section -->
+  <br>
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="#">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Ha Noi
+                </span>
+              </a>
+              <a href="#">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +84123456789
+                </span>
+              </a>
+              <a href="#">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  abc.vnu@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+         
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="color:white">
+      <p>
+        &copy; <span id="displayYear"></span> INT3230E_55
+      </p>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  {% comment %} <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map --> {% endcomment %}
+
+</body>
+
+</html>

@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/tabb.jpg' %}" type="">
+
+  <title> CipherSign   </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{%static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{%static 'css/responsive.css' %}" rel="stylesheet" />
+  <link href="{%static 'css/cryptography.css' %}" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+<div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <span>
+                    CipherSign
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav  ">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'cryptosystem' %}"> CryptoSystem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'signature' %}">Signature</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'why' %}">More</a>
+                </li>
+                </ul>
+            </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+     
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Information <br>
+                      Security
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="#information" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/abc1.gif' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Cryptosystem
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="#cryptosystem" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/slider-img1.png' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Digital <br>
+                      Signature
+                    </h1>
+                    <p>
+                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="{% static 'images/e-signatures1.gif' %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+  <br>
+
+  <!-- about section -->
+  <section class="about_section layout_padding" id = "information">
+    <div class="terminal" id = "gene-key">
+      <div class="overlay"></div>
+
+      <h1>Generate Keys</h1>
+
+      <div class="container-crypto">
+        <div id="left_key">
+          <div id="public-key">
+              Public Key
+          </div>
+        </div>
+
+        <div id="right_key">
+          <div id="private-key">
+              Private Key
+          </div>
+        </div>
+
+        <div id="generate_key">
+
+            <div>
+              {% comment %} <label for="key-option">Chọn loại khóa:</label> {% endcomment %}
+              <select id="key-option">
+                  <option value="rsa_key" selected="true">RSA Key</option>
+                  <option value="elgamal_key">ElGamal Key</option>
+                  <option value="ecc_key">ECC Key</option>
+              </select>
+
+              {% comment %} <label for="bit-option">Chọn độ dài bit:</label> {% endcomment %}
+              <select id="bit-option">
+                <option value="1024" selected="true">1024</option>
+                <option value="2048">2048</option>
+                <option value="4096">4096</option>
+              </select>
+
+              <select id="ecc-option">
+                <option value="ecc_192" selected="true">192</option>
+              </select>
+              <button id="generate">Generate</button>
+            </div>
+
+        </div>
+      </div>      
+
+    </div>
+  <section>
+
+    <section class="about_section layout_padding" id = "information">
+        <div class="terminal" id = "terminal">
+            <div class="overlay"></div>
+            <h1>Cryptosystem Algorithms</h1>
+            <div class="container-crypto">
+            <div id="left">
+                <div>
+                    <div>
+                        {% comment %} <label for="algorithm-option">Select an algorithm:</label> {% endcomment %}
+                        <select id="algorithm-option">
+                            <option value="rsa_al" selected="true">RSA Algorithm</option>
+                            <option value="elgamal_al">Elgamal Algorithm</option>
+                            <option value="ecc_al">ECC Algorithm</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="choice-option"></label>
+                        <select id="choice-option">
+                            <option value="encrypt" selected="true">Encrypt</option>
+                            <option value="decrypt">Decrypt</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="input" id="input-label">Plaintext:</label>
+                        <div class="console-input">
+                            <label for="input"></label>
+                            <input type="text" id="input">
+                        </div>
+                        <label for="shift-input" id="shift-input-label">Public key:</label>
+                        <div class="console-input">
+                            <label for="shift-input"></label>
+                            <input type="text" id="shift-input">
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button id="enter-btn">Encrypt</button>
+                    </div>
+                </div>
+            </div>
+            <div id="right">
+                <div id="output">
+                    OUTPUT
+                </div>
+            </div>
+            </div>
+        </div>
+    <section>
+  <!-- info section -->
+
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static 'js/cryptography.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  {% comment %} <script type="text/javascript" src="{% static 'js/custom.js' %}"></script> {% endcomment %}
+ 
+
+</body>
+
+</html>
